@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'rest_auth.registration',
+    'rest_framework_swagger',
     'posts'
 ]
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
@@ -130,4 +131,10 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.TokenAuthentication'
 ],
+}
+REST_FRAMEWORK = { 'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema' }
+
+SWAGGER_SETTINGS = {
+'LOGIN_URL': 'rest_framework:login',
+'LOGOUT_URL': 'rest_framework:logout',
 }
